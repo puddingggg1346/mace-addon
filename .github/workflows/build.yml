@@ -17,7 +17,8 @@ jobs:
         run: |
           wget https://services.gradle.org/distributions/gradle-8.10-bin.zip
           unzip gradle-8.10-bin.zip
-          echo "$PWD/gradle-8.10/bin" >> $GITHUB_PATH
+          export PATH=$PWD/gradle-8.10/bin:$PATH
+          gradle --version
       - name: Build
         run: gradle build --no-daemon
       - name: Upload JAR
