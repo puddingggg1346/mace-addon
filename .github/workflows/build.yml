@@ -13,15 +13,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      - name: Setup Gradle
+      - name: Build
         run: |
           wget https://services.gradle.org/distributions/gradle-8.11-bin.zip
           unzip gradle-8.11-bin.zip
-          echo "$PWD/gradle-8.11/bin" >> $GITHUB_PATH
-      - name: Build
-        run: gradle build --no-daemon
-      - name: Upload JAR (always)
-        if: always()
+          export PATH=$PWD/gradle-8.11/bin:$PATH
+          gradle build --no-daemon
+      - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: addon-jar
