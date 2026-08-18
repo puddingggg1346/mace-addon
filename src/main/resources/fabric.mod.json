@@ -1,36 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "addon-template",
-  "version": "${version}",
-  "name": "Addon Template",
-  "description": "An addon template for Meteor Client addons.",
-  "authors": [
-    "seasnail"
-  ],
-  "contact": {
-    "sources": "https://github.com/MeteorDevelopment/meteor-addon-template"
-  },
-  "icon": "assets/template/icon.png",
+  "id": "mace-addon",
+  "version": "1.0.0",
+  "name": "Mace Addon",
+  "description": "Mace auto-clicker for Meteor",
+  "authors": ["you"],
+  "contact": {},
+  "license": "MIT",
   "environment": "client",
   "entrypoints": {
-    "meteor": [
-      "com.example.addon.AddonTemplate"
-    ]
-  },
-  "mixins": [
-    "addon-template.mixins.json"
-  ],
-  "custom": {
-    "meteor-client:color": "225,25,25",
-    "modmenu": {
-      "parent": {
-        "id": "meteor-client"
-      }
-    }
+    "meteor": ["com.you.maceaddon.MaceAddon"]
   },
   "depends": {
-    "java": ">=${jdk_version}",
-    "minecraft": "${minecraft_version}",
+    "fabricloader": ">=0.16.0",
+    "minecraft": ">=1.21.11",
     "meteor-client": "*"
   }
 }
