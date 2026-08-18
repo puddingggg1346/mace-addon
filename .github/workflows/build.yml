@@ -13,12 +13,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      - name: Build
+      - name: Setup Gradle 8.10
         run: |
-          wget https://services.gradle.org/distributions/gradle-8.11-bin.zip
-          unzip gradle-8.11-bin.zip
-          export PATH=$PWD/gradle-8.11/bin:$PATH
-          gradle build --no-daemon
+          wget https://services.gradle.org/distributions/gradle-8.10-bin.zip
+          unzip gradle-8.10-bin.zip
+          echo "$PWD/gradle-8.10/bin" >> $GITHUB_PATH
+      - name: Build
+        run: gradle build --no-daemon
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
