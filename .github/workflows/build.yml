@@ -1,0 +1,28 @@
+name: Build Addon
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - name: Setup Gradle
+        run: |
+          wget https://services.gradle.org/distributions/gradle-8.11-bin.zip
+          unzip gradle-8.11-bin.zip
+          echo "$PWD/gradle-8.11/bin" >> $GITHUB_PATH
+      - name: Build
+        run: gradle build --no-daemon
+      - name: Upload JAR (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: addon-jar
+          path: build/libs/*.jar
