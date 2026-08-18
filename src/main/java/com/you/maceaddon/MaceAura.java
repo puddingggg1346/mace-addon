@@ -269,7 +269,7 @@ public class MaceAura extends Module {
     public boolean attacking, swapped;
     public static int previousSlot;
 
-    public KillAura() {
+    public MaceAura() {
         super(Categories.Combat, "mace-aura", "Attacks specified entities around you.");
     }
 
