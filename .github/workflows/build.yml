@@ -17,10 +17,8 @@ jobs:
         run: |
           wget https://services.gradle.org/distributions/gradle-8.10-bin.zip
           unzip gradle-8.10-bin.zip
-          export PATH=$PWD/gradle-8.10/bin:$PATH
-          gradle --version
       - name: Build
-        run: gradle build --no-daemon
+        run: ./gradle-8.10/bin/gradle build --no-daemon
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
