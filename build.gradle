@@ -5,15 +5,13 @@ plugins {
 repositories {
     mavenCentral()
     maven { url 'https://maven.fabricmc.net/' }
-    maven { url 'https://maven.meteordev.org/releases' }
-    maven { url 'https://maven.meteordev.org/snapshots' }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:1.21.11"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:0.16.9"
-    compileOnly "meteordevelopment:meteor-client:0.5.11-SNAPSHOT"
+    compileOnly files('libs/mc.jar')
 }
 
 java {
